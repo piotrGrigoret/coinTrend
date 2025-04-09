@@ -1,19 +1,21 @@
 
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './redux/hooks/hooks';
 
-
-
+import { Route, Routes } from "react-router-dom"
+import { MainLayout } from "./layouts/MainLayout"
+import { MainPage } from "./pages/MainPage"
+import { Portfolio } from "./pages/Portfolio"
+import { NotFound } from "./pages/NotFound"
 function App() {
-  const dispatch = useAppDispatch();
-  const prices = useAppSelector(state => state.ticker);
-  useEffect(() => {
-    dispatch({ type: 'app/startWebSocket' });
-  }, [dispatch]);
 
   return (
     <>
-
+    <Routes>
+      <Route path="/" element={<MainLayout/>}>
+        <Route path="/" element={<MainPage/>}></Route>
+        <Route path="/portfolio" element={<Portfolio/>}></Route>
+        <Route path="/*" element={<NotFound/>}></Route>
+      </Route>
+    </Routes>
     </>
   )
 }

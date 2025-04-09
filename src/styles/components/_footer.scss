@@ -1,0 +1,20 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 800;
+
+    nav{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        a{transition: .5;}
+        a:hover{
+            color: $color-primary;
+        }
+    }
+    h4{
+        text-align: center;
+    }
+}

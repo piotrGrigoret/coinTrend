@@ -1,0 +1,15 @@
+.header{
+    padding:40px 0px 40px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+        width: 220px;
+        cursor: pointer;
+    }    
+    .portfolio-logo{
+        cursor: pointer;
+        display: flex;
+        justify-items: end;
+    }
+}

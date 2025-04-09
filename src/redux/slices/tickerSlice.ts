@@ -5,10 +5,7 @@ interface TickerState {
     [symbol: string]: string; 
 }
 
-
 const initialState: TickerState = {};
-
-
 
 const tickerSlice = createSlice({
     name: 'ticker',
