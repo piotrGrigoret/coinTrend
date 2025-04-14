@@ -9,6 +9,10 @@
     cursor: pointer;
     transition: .4;
     span{color:$color-primary}
+
+    @media (max-width: 640px) {
+    width: 90%;
+    }
     .card-img{
         color: $color-border;
         transition: .4;

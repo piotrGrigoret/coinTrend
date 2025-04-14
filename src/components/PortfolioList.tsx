@@ -1,40 +1,35 @@
 import { useEffect, useState } from "react";
 import { PortfolioCoin } from "./NestedModal";
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../redux/store';
 export const PortfolioList = () => {
-      const dispatch = useDispatch<AppDispatch>(); 
 
     const [punkts, setPunkts] = useState<PortfolioCoin[]>(() => {
         const stored = localStorage.getItem('portfolioCoins');
         return stored ? JSON.parse(stored) as PortfolioCoin[] : [];
     }); 
     const [totalPortfolioPrice, setTotalPortfolioPrice] = useState<number>();
+
     useEffect(()=>{
         updateData();
+    }, []);
 
-    }, [dispatch]);
-
-    
-    const updateData = () => {
-
-        setPunkts(() => {
-            const stored = localStorage.getItem('portfolioCoins');
-            return stored ? JSON.parse(stored) as PortfolioCoin[] : [];
-        });
-
+    useEffect(() => {
         const newAllPrice = punkts
-            .map(p => Number(p.price))
-            .reduce((sum, cur) => sum + cur, 0);
-            
+          .map(p => Number(p.price))
+          .reduce((sum, cur) => sum + cur, 0);
         setTotalPortfolioPrice(newAllPrice);
-    }
-
-    const deleteCoinHandler = (symbol: string) =>{
+      }, [punkts]);
+      
+      const updateData = () => {
+        const stored = localStorage.getItem('portfolioCoins');
+        const updated = stored ? JSON.parse(stored) as PortfolioCoin[] : [];
+        setPunkts(updated);
+      };
+      
+      const deleteCoinHandler = (symbol: string) => {
         const newPunkts = punkts.filter(p => p.symbol !== symbol);
         localStorage.setItem('portfolioCoins', JSON.stringify(newPunkts));
         setPunkts(newPunkts);
-    }
+      };
 
     return (
         <div className="portfolio-list">

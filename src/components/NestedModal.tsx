@@ -17,8 +17,9 @@ const style = {
   border: '2px solid #3d9970',
   boxShadow: 24,
   borderRadius:3,
-  width: "90vw",
-  height:"90vh",
+  width:{xs:"80vw", sm:"80vw", md:"90vw"},
+  height:{xs:"60vh", sm:"60vh", md:"90vh"},
+  
   pt: 2,
   px: 4,
   pb: 3,
@@ -119,7 +120,7 @@ export const ChildModal: React.FC<ChildModalProps> = ({
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style, height:210, width: 300, padding:2 }}>
+        <Box sx={{ ...style, height:210, width: 270, padding:2 }}>
           <CircleX  className='modal-circle'  onClick={handleClose} />
 
           <h3 id="child-modal-title">How much do you want to add to your portfolio?</h3>
@@ -173,7 +174,7 @@ export const NestedModal: React.FC<NestedModalProps> = ({
 
     >
       <CircleX className='modal-circle' onClick={onClose} />
-      <div>
+      <div className='isMobileInModal'>
         <HistoricalChart
           symbol = {symbol}
         />

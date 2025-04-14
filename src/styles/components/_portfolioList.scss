@@ -2,7 +2,8 @@
     display: grid;
     display: flex;
     flex-direction: column;
-   min-height: 60vh;
+    min-height: 60vh;
+    min-width: 1024px;
     .portfolio-punkt{
         display: grid;
         width: 100%;

@@ -73,8 +73,14 @@ a{
     }
   }
   
-
-
 .historical-chat-coinname{
     color: $color-primary;
 }
+
+.isMobileInModal{
+    display: block;
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}    
+
