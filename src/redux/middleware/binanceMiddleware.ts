@@ -22,6 +22,8 @@ const streamUrl = `wss://stream.binance.com:9443/stream?streams=${symbols
     const tickerMap: Record<string, any> = {};
   
     return next => action => {
+    if (action && typeof action === 'object' && 'type' in action) {
+      
       if (action?.type === 'app/startWebSocket') {
         socket = new WebSocket(streamUrl);
   
@@ -52,7 +54,8 @@ const streamUrl = `wss://stream.binance.com:9443/stream?streams=${symbols
           console.log('[WebSocket Closed]');
         };
       }
-  
+    
       return next(action);
+    }
     };
   };
