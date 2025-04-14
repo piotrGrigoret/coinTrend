@@ -26,3 +26,55 @@ a{
         padding-right: 8px;
     }
 }
+
+
+
+.modal-circle{
+    cursor: pointer;
+    float: right;
+
+    &:hover{
+        color: $color-primary;
+    }
+}
+.modal-data{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.add-button-container{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+.add-button {
+    display: flex;
+    align-items: center;
+    color: $color-secondary;
+    padding: 10px 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    line-height: 0px;
+    background-color: transparent; 
+    border: solid 2px $color-primary;
+    &:hover {
+        background-color: $color-primary;
+    }
+  
+    .add-button__icon {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+
+
+.historical-chat-coinname{
+    color: $color-primary;
+}

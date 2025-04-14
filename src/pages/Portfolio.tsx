@@ -1,7 +1,9 @@
-import React from 'react'
+import { PortfolioList } from "../components/PortfolioList"
 
 export const Portfolio = () => {
   return (
-    <div>Portfolio</div>
+    <div className="container">
+      <PortfolioList/>
+    </div>
   )
 }

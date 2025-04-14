@@ -1,0 +1,24 @@
+.portfolio-list{
+    display: grid;
+    display: flex;
+    flex-direction: column;
+   min-height: 60vh;
+    .portfolio-punkt{
+        display: grid;
+        width: 100%;
+        grid-template-columns: 16% 16% 16% 16% 16% 16%;
+
+        
+    }
+    .punkt-coin{
+        transition: .2s;
+        cursor: pointer;
+        &:hover{
+            opacity: .6;
+        }
+    }
+    .green{
+        color: $color-primary;
+    }
+}
+

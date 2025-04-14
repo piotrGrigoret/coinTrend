@@ -1,0 +1,29 @@
+.ticker-card{
+    margin: 0 auto;
+    width: 300px;
+    height: 145px;
+    border-bottom: solid 2px $color-border;
+    padding: 10px;
+    display: flex;
+    gap: 25px;
+    cursor: pointer;
+    transition: .4;
+    span{color:$color-primary}
+    .card-img{
+        color: $color-border;
+        transition: .4;
+    }
+ 
+    &:hover{ 
+        border-bottom: solid 2px $color-primary;
+        box-shadow: 0 4px 12px $color-gray;
+        .card-img{color: $color-primary;}
+    }
+}
+
+.move-red{
+    color: red;
+}
+.move-green{
+    color: $color-primary;
+}

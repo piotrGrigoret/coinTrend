@@ -1,6 +1,15 @@
 import { Coins } from 'lucide-react';
+import { AppDispatch } from '../redux/store';
+import { useDispatch } from 'react-redux';
+import { setFindTicket } from '../redux/slices/tickerSlice';
+
 
 export const Input = () => {
+  const dispatch = useDispatch<AppDispatch>(); 
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setFindTicket(e.target.value));
+  };
   return (
     <div className="input-container">
       <div className="input-wrapper">
@@ -8,8 +17,9 @@ export const Input = () => {
           type="text"
           className="input"
           placeholder="Coin name"
+          onChange={handleChangeInput}
         />
-        <Coins className="input-icon" />
+        <Coins className="input-icon"  />
       </div>
     </div>
   );

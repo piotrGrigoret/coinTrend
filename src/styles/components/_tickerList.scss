@@ -1,0 +1,25 @@
+.ticker-list{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    min-height: 60vh;
+    .skeleton{
+        background-color: $color-gray;
+    }
+}
+
+.error{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    justify-content: center;
+    color: $color-primary;
+    font-weight: 500;
+    font-size: 22px;
+    .notFound-img{
+        width: 300px;
+    }
+}
