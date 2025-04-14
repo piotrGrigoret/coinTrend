@@ -8,7 +8,7 @@ export const Input = () => {
   const dispatch = useDispatch<AppDispatch>(); 
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setFindTicket(e.target.value));
+    dispatch(setFindTicket((e.target.value.toLowerCase())));
   };
   return (
     <div className="input-container">

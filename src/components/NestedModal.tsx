@@ -19,7 +19,7 @@ const style = {
   borderRadius:3,
   width:{xs:"80vw", sm:"80vw", md:"90vw"},
   height:{xs:"60vh", sm:"60vh", md:"90vh"},
-  
+  overflow: 'auto',
   pt: 2,
   px: 4,
   pb: 3,

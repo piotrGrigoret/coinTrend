@@ -43,6 +43,9 @@ a{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
 }
 .add-button-container{
     display: flex;
