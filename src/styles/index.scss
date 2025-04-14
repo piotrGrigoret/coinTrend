@@ -1,13 +1,9 @@
-@import './abstract/variables';
-@import './global/global';
-@import './components/header';
-@import './components/footer';
-@import './components/notFound';
-@import './components/input';
-@import './components/tickerList';
-@import './components/tickerCard';
-@import './components/portfolioList';
-
-
-
-
+@use './abstract/variables' as *;
+@use './global/global' as *;
+@use './components/header' as *;
+@use './components/footer' as *;
+@use './components/notFound' as *;
+@use './components/input' as *;
+@use './components/tickerList' as *;
+@use './components/tickerCard' as *;
+@use './components/portfolioList' as *;
