@@ -1,23 +1,28 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { PortfolioCoin } from "./NestedModal";
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../redux/store';
 export const PortfolioList = () => {
+      const dispatch = useDispatch<AppDispatch>(); 
+
     const [punkts, setPunkts] = useState<PortfolioCoin[]>(() => {
         const stored = localStorage.getItem('portfolioCoins');
         return stored ? JSON.parse(stored) as PortfolioCoin[] : [];
     }); 
-
     const [totalPortfolioPrice, setTotalPortfolioPrice] = useState<number>();
-
     useEffect(()=>{
-        
         updateData();
-    }, []);
 
+    }, [dispatch]);
+
+    
     const updateData = () => {
+
         setPunkts(() => {
             const stored = localStorage.getItem('portfolioCoins');
             return stored ? JSON.parse(stored) as PortfolioCoin[] : [];
         });
+
         const newAllPrice = punkts
             .map(p => Number(p.price))
             .reduce((sum, cur) => sum + cur, 0);

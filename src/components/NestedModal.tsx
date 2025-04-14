@@ -182,7 +182,7 @@ export const NestedModal: React.FC<NestedModalProps> = ({
         <div>price: {parseFloat(price).toFixed(1)}$</div>
         <div>movement: 
           <span className={movement[0] === '-' ? 'move-red' : 'move-green'}>
-              {parseFloat(movement).toFixed(1)}
+              {movement}
           </span>
         </div>
         <div>high price: {highPrice}$</div>

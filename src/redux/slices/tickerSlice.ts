@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
-interface TickerState {
+export interface TickerState {
   symbol: string;
   price: string;
   movement: string;

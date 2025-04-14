@@ -17,37 +17,42 @@ const streamUrl = `wss://stream.binance.com:9443/stream?streams=${symbols
   .map(s => `${s}@ticker`)  
   .join('/')}`;
 
-export const binanceMiddleware: Middleware = store => {
-  let socket: WebSocket;
-
-  return next => action => {
-    if (action && typeof action === 'object' && 'type' in action) {
-      if (action.type === 'app/startWebSocket') {
+  export const binanceMiddleware: Middleware = store => {
+    let socket: WebSocket;
+    const tickerMap: Record<string, any> = {};
+  
+    return next => action => {
+      if (action?.type === 'app/startWebSocket') {
         socket = new WebSocket(streamUrl);
-
+  
         socket.onmessage = event => {
           const message = JSON.parse(event.data);
-
-          const { 
-            s: symbol, c: price, p: movement, q: quoteVolume, h:highPrice, l:lowPrice, v: volume,
-            n: numberOfTrades 
-
+          const {
+            s: symbol, c: price, p: movement, q: quoteVolume,
+            h: highPrice, l: lowPrice, v: volume, n: numberOfTrades
           } = message.data;
-          store.dispatch(updateTicker({ 
+  
+          tickerMap[symbol] = {
             symbol, price, movement, quoteVolume, highPrice, lowPrice, volume, numberOfTrades
-          }));
+          };
         };
-
+  
+        setInterval(() => {
+          const values = Object.values(tickerMap);
+          values.forEach(ticker => {
+            store.dispatch(updateTicker(ticker));
+          });
+        }, 5000);
+  
         socket.onerror = err => {
           console.error('[WebSocket Error]', err);
         };
-
+  
         socket.onclose = () => {
           console.log('[WebSocket Closed]');
         };
       }
-    }
-
-    return next(action);
+  
+      return next(action);
+    };
   };
-};
