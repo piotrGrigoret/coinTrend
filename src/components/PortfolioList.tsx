@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import notFound from "../assets/svg/404.svg"
 import { PortfolioCoin } from "./NestedModal";
 export const PortfolioList = () => {
 
@@ -7,7 +8,7 @@ export const PortfolioList = () => {
         return stored ? JSON.parse(stored) as PortfolioCoin[] : [];
     }); 
     const [totalPortfolioPrice, setTotalPortfolioPrice] = useState<number>();
-
+    
     useEffect(()=>{
         updateData();
     }, []);
@@ -30,6 +31,16 @@ export const PortfolioList = () => {
         localStorage.setItem('portfolioCoins', JSON.stringify(newPunkts));
         setPunkts(newPunkts);
       };
+
+
+    if(punkts.length < 1){
+        return(
+        <div className="notFound">
+            <img className="notFound-img" src={notFound} alt="not found" />
+            <h5>Your Portfolio is Empty:0</h5>
+        </div>
+        )
+    }
 
     return (
         <div className="portfolio-list">
